@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Manage multiple application stacks in a local development environment",
   "main": "index.js",
+  "bin": {
+    "marina": "./bin/marina.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/jimdelois/marina.git"
@@ -14,7 +17,6 @@
   },
   "homepage": "https://github.com/jimdelois/marina#readme",
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "commander": "^2.19.0"
+    "yargs": "^13.2.0"
   }
 }
