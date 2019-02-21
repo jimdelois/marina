@@ -1,0 +1,22 @@
+{
+  "name": "marina",
+  "version": "0.1.0",
+  "description": "Manage multiple application stacks in a local development environment",
+  "main": "index.js",
+  "bin": {
+    "marina": "./bin/marina.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jimdelois/marina.git"
+  },
+  "author": "Jim DeLois",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/jimdelois/marina/issues"
+  },
+  "homepage": "https://github.com/jimdelois/marina#readme",
+  "dependencies": {
+    "yargs": "^13.2.0"
+  }
+}

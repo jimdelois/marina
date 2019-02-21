@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02": {
+      "id": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
+      "name": "Got Hubes",
+      "type": "GIT",
+      "config": {
+        "vendor": "GITHUB",
+        "url": "github.com",
+        "protocol": "SSH",
+        "token": "8Ey7qRnUi9v8HrsVTNEvlBAXaa5Z6nTRho5oq9cCi789GVk3DGCv6i2T6mFEJFhl"
+      }
+    }
+  },
+  "applications": {
+    "6f294762-b1ff-4a93-b7cb-1c160ff03404": {
+      "id": "6f294762-b1ff-4a93-b7cb-1c160ff03404",
+      "name": "Proxy",
+      "type": "IMAGE",
+      "config": {
+        "image": "jwilder/nginx-proxy:alpine"
+      }
+    },
+    "1f8d737c-f81d-42cf-b47f-6c01ac21622e": {
+      "id": "1f8d737c-f81d-42cf-b47f-6c01ac21622e",
+      "name": "Proxy",
+      "type": "LOCAL",
+      "config": {
+        "path": "/Users/jdelois//Development/Docker",
+        "docker-compose-file": "nginx-proxy.docker-compose.yml"
+      }
+    },
+    "da278a79-1bc7-470d-bc3b-9f06bdc0263e": {
+      "id": "da278a79-1bc7-470d-bc3b-9f06bdc0263e",
+      "name": "Magic 8 API",
+      "type": "REPOSITORY",
+      "config": {
+        "provider": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
+        "repository": "jimdelois/magiceight.api",
+        "path": "/Users/jdelois/Development/Projects/Managed/jimdelois/magiceight.api",
+        "docker-compose-file": null,
+        "depends-on": null
+      }
+    }
+  },
+  "stacks": {
+    "6f294762-b1ff-4a93-b7cb-1c160ff03404": {
+      "id": "6f294762-b1ff-4a93-b7cb-1c160ff03404",
+      "name": "Magic 8",
+      "applications": [
+        "da278a79-1bc7-470d-bc3b-9f06bdc0263e",
+        "6f294762-b1ff-4a93-b7cb-1c160ff03404"
+      ]
+    }
+  }
+}
