@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jimdelois/marina#readme",
   "dependencies": {
+    "bunyan": "^1.8.12",
     "yargs": "^13.2.0"
   }
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node --no-warnings
 
 const { setConfigFile } = require('../lib/services/configuration');
+const logger = require('../lib/logger');
 const yargs = require('yargs');
 
 const defaultConfigLocation = process.env.HOME + '/.marina/marina.json';
@@ -15,6 +16,16 @@ Examples:
   $0 config test
   $0 -c /path/to/marina.json stacks ls
   $0 stack up StackName`;
+
+const applyVerbosity = (argv) => {
+    if (argv.verbose) {
+        logger.level(30); // bunyan.INFO
+        console.log(argv);
+    }
+    if (argv.debug) {
+        logger.level(20); // bunyan.DEBUG
+    }
+};
 
 const loadConfigurationFile = (argv) => {
     setConfigFile(argv.file);
@@ -38,10 +49,21 @@ const argv = yargs
         describe: 'Configuration file',
         type: 'string'
     })
+    .option('verbose', {
+        demandOption: false,
+        describe: 'Verbose Output',
+        type: 'boolean'
+    })
+    .option('debug', {
+        demandOption: false,
+        describe: 'Debug Output',
+        type: 'boolean'
+    })
 
     // Commands
     .demandCommand(1, 'No commands executed. Please specify a command.')
     .commandDir('./commands')
-    .middleware([loadConfigurationFile])
+    .middleware([applyVerbosity, loadConfigurationFile])
     .argv
 ;
+
