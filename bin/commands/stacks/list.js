@@ -1,5 +1,7 @@
 const { getConfig } = require('../../../lib/services/configuration');
+const sprintf = require('sprintf-js').sprintf;
 
+const nameLen = 20;
 let output = '';
 
 module.exports = {
@@ -11,7 +13,12 @@ module.exports = {
         const config = await getConfig();
         const stacks = config.stacks;
         Object.keys(stacks).forEach((stackId) => {
-            output += stacks[stackId].name;
+            output += sprintf(
+                `%-${nameLen}s %36s %4d Applications\n`,
+                stacks[stackId].name.slice(0, nameLen),
+                stackId,
+                stacks[stackId].applications.length
+            );
         });
 
         process.stdout.write(output);

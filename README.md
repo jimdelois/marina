@@ -39,6 +39,8 @@ $> npm install
 $> npm link
 ```
 
+*Note: This will eventually be a Dockerized image with a `marina` entrypoint and a helper script to install as a single executable on a host system.*
+
 ### Invoking
 Start with the basic `marina` command for the default Help menu, which will assist further.
 
@@ -47,22 +49,24 @@ $> marina
 Marina is a toolset for managing multiple Dockerized application stacks.
 
 General Usage:
-  marina [general options] <command> [command-specific options] [<..etc>]
+ marina [general options] <command> [command-specific options] [<..etc>]
 
 Examples:
-  marina config test
-  marina -c /path/to/marina.json stacks ls
-  marina stack up StackName
+ marina config test
+ marina -f /path/to/marina.json stacks ls
+ marina stack up StackName
 
 Commands:
-  marina generate-completion  Generate a bash completion script
-  marina stack                Interact with an individual Stack                                          [aliases: s]
-  marina stacks               Interact with all Stacks collectively                                     [aliases: ss]
+ marina generate-completion  Generate a bash completion script
+ marina stack                Interact with an individual Stack                               [aliases: s]
+ marina stacks               Interact with all Stacks collectively                          [aliases: ss]
 
 Options:
-  -h, --help     Show help                                                                                  [boolean]
-  -f, --file     Configuration file [string] [required] [default: "~/.marina/marina.json"]
-  -v, --version  Show version number                                                                        [boolean]
+ -h, --help     Show help                                                                       [boolean]
+ -f, --file     Configuration file    [string] [required] [default: "/Users/jdelois/.marina/marina.json"]
+ --verbose      Verbose Output                                                                  [boolean]
+ --debug        Debug Output                                                                    [boolean]
+ -v, --version  Show version number                                                             [boolean]
 
 Copyright 2019 - Jim DeLois - https://github.com/jimdelois/marina
 ```
