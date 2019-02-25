@@ -20,7 +20,6 @@ Examples:
 const applyVerbosity = (argv) => {
     if (argv.verbose) {
         logger.level(30); // bunyan.INFO
-        console.log(argv);
     }
     if (argv.debug) {
         logger.level(20); // bunyan.DEBUG
