@@ -14,7 +14,7 @@ General Usage:
 
 Examples:
   $0 config test
-  $0 -c /path/to/marina.json stacks ls
+  $0 -f /path/to/marina.json stacks ls
   $0 stack up StackName`;
 
 const applyVerbosity = (argv) => {
