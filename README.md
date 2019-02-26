@@ -58,6 +58,7 @@ Examples:
 
 Commands:
  marina generate-completion  Generate a bash completion script
+ marina config               Operate with/on a given Configuration file                      [aliases: c]
  marina stack                Interact with an individual Stack                               [aliases: s]
  marina stacks               Interact with all Stacks collectively                          [aliases: ss]
 
