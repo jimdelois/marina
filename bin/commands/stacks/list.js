@@ -1,15 +1,14 @@
 const { getConfig } = require('../../../lib/services/configuration');
 const sprintf = require('sprintf-js').sprintf;
 
-const nameLen = 20;
-let output = [];
-
 module.exports = {
     command: 'list',
     aliases: ['ls'],
     desc: 'List all configured Stacks',
     builder: {},
     handler: async (argv) => {
+        let output = [];
+        const nameLen = 20;
         const config = await getConfig();
         const stacks = config.stacks;
 
