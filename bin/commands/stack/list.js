@@ -1,39 +1,7 @@
-const { getConfig } = require('../../../lib/services/configuration');
+const { selectStack, selectApplication } = require('../../../lib/services/configuration');
 const sprintf = require('sprintf-js').sprintf;
 
 const nameLen = 20;
-
-const selectStack = async (stackNameOrId) => {
-    const config = await getConfig();
-    const stacks = config.stacks;
-
-    const stackId = Object.keys(stacks).filter((stackId) => {
-        return stackId.toLowerCase() === stackNameOrId.toLowerCase() ||
-            stacks[stackId].name.toLowerCase() === stackNameOrId.toLowerCase();
-    })[0];
-
-    if (stacks[stackId] === undefined) {
-        throw Error(`No Stack found as "${stackNameOrId}"`);
-    }
-
-    return stacks[stackId];
-};
-
-const selectApplication = async (applicationNameOrId) => {
-    const config = await getConfig();
-    const applications = config.applications;
-
-    const applicationId = Object.keys(applications).filter((applicationId) => {
-        return applicationId.toLowerCase() === applicationNameOrId.toLowerCase() ||
-            applications[applicationId].name.toLowerCase() === applicationNameOrId.toLowerCase();
-    });
-
-    if (applications[applicationId] === undefined) {
-        throw Error(`No Application found as "${applicationNameOrId}"`);
-    }
-
-    return applications[applicationId];
-};
 
 module.exports = {
     command: 'list <stackNameOrId>',
