@@ -14,13 +14,12 @@ General Usage:
 
 Examples:
   $0 config test
-  $0 -c /path/to/marina.json stacks ls
+  $0 -f /path/to/marina.json stacks ls
   $0 stack up StackName`;
 
 const applyVerbosity = (argv) => {
     if (argv.verbose) {
         logger.level(30); // bunyan.INFO
-        console.log(argv);
     }
     if (argv.debug) {
         logger.level(20); // bunyan.DEBUG
