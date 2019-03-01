@@ -1,4 +1,4 @@
-const { selectStack, selectApplication } = require('../../../lib/services/configuration');
+const { selectStack, selectApplications } = require('../../../lib/services/configuration');
 const sprintf = require('sprintf-js').sprintf;
 
 const nameLen = 20;
@@ -35,8 +35,7 @@ module.exports = {
             'TYPE'
         ));
 
-        for (const applicationId of stack.applications) {
-            const application = await selectApplication(applicationId);
+        for (const application of await selectApplications(stack.applications)) {
             output.push(sprintf(
                 `%-${nameLen}s %36s %s`,
                 application.name.slice(0, nameLen),
