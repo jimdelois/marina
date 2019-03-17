@@ -3,8 +3,15 @@
   "version": "0.1.0",
   "description": "Manage multiple application stacks in a local development environment",
   "main": "index.js",
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "bin": {
     "marina": "./bin/marina.js"
+  },
+  "pkg": {
+    "scripts": "bin/commands/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -16,10 +23,18 @@
     "url": "https://github.com/jimdelois/marina/issues"
   },
   "homepage": "https://github.com/jimdelois/marina#readme",
+  "scripts": {
+    "build": "pkg --targets node10-macos-x64 --out-path ./build/ --options no-warnings  ./package.json",
+    "build-all": "pkg --targets node10-macos-x64,node10-linux-x64,node10-win-x64 --out-path ./build/ --options no-warnings  ./package.json",
+    "clean": "rm -rf ./build"
+  },
   "dependencies": {
     "bunyan": "^1.8.12",
     "docker-compose": "^0.12.0",
     "sprintf-js": "^1.1.2",
     "yargs": "^13.2.0"
+  },
+  "devDependencies": {
+    "pkg": "^4.3.7"
   }
 }
