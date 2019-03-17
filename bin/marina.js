@@ -27,6 +27,10 @@ const applyVerbosity = (argv) => {
 };
 
 const loadConfigurationFile = (argv) => {
+    if (process.env.MARINA_CONFIG) {
+        logger.get('cli/runner').debug('Using MARINA_CONFIG from ENV');
+        argv.file = process.env.MARINA_CONFIG;
+    }
     setConfigFile(argv.file);
 };
 
