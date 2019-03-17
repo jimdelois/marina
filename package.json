@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/jimdelois/marina#readme",
   "scripts": {
-    "build": "pkg --targets node10-macos-x64 --out-path ./build/ --options no-warnings  ./package.json"
+    "build": "pkg --targets node10-macos-x64 --out-path ./build/ --options no-warnings  ./package.json",
+    "build-all": "pkg --targets node10-macos-x64,node10-linux-x64,node10-win-x64 --out-path ./build/ --options no-warnings  ./package.json",
+    "clean": "rm -rf ./build"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
