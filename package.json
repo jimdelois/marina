@@ -6,6 +6,9 @@
   "bin": {
     "marina": "./bin/marina.js"
   },
+  "pkg": {
+    "scripts": "bin/commands/**/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/jimdelois/marina.git"
@@ -16,10 +19,16 @@
     "url": "https://github.com/jimdelois/marina/issues"
   },
   "homepage": "https://github.com/jimdelois/marina#readme",
+  "scripts": {
+    "build": "pkg --targets node10-macos-x64 --out-path ./build/ --options no-warnings  ./package.json"
+  },
   "dependencies": {
     "bunyan": "^1.8.12",
     "docker-compose": "^0.12.0",
     "sprintf-js": "^1.1.2",
     "yargs": "^13.2.0"
+  },
+  "devDependencies": {
+    "pkg": "^4.3.7"
   }
 }
