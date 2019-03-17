@@ -1,11 +1,10 @@
 #!/usr/bin/env node --no-warnings
 
-const { setConfigFile } = require('../lib/services/configuration');
+const { loadConfigurationFile } = require('./middleware/configFile');
 const logger = require('../lib/logger');
 const yargs = require('yargs');
 
 const defaultConfigLocation = process.env.HOME + '/.marina/marina.json';
-// ^^^ TODO: Relative vs. absolute (If starts with "/", assume abs, otherwise rel), use ${__dirname}
 
 const usage = `Marina is a toolset for managing multiple Dockerized application stacks.
 
@@ -24,14 +23,6 @@ const applyVerbosity = (argv) => {
     if (argv.debug) {
         logger.level(20); // bunyan.DEBUG
     }
-};
-
-const loadConfigurationFile = (argv) => {
-    if (process.env.MARINA_CONFIG) {
-        logger.get('cli/runner').debug('Using MARINA_CONFIG from ENV');
-        argv.file = process.env.MARINA_CONFIG;
-    }
-    setConfigFile(argv.file);
 };
 
 const argv = yargs
