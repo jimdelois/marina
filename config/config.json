@@ -15,7 +15,7 @@
   "applications": {
     "6f294762-b1ff-4a93-b7cb-1c160ff03404": {
       "id": "6f294762-b1ff-4a93-b7cb-1c160ff03404",
-      "name": "Proxy",
+      "name": "Example Image",
       "type": "IMAGE",
       "config": {
         "image": "jwilder/nginx-proxy:alpine"
@@ -27,7 +27,8 @@
       "type": "LOCAL",
       "config": {
         "path": "/Users/jdelois//Development/Docker",
-        "docker-compose-file": "nginx-proxy.docker-compose.yml"
+        "docker-compose-file": "nginx-proxy.docker-compose.yml",
+        "depends-on": null
       }
     },
     "da278a79-1bc7-470d-bc3b-9f06bdc0263e": {
