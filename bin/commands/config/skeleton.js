@@ -1,4 +1,4 @@
-const example = require('../../../config/marina-skeleton');
+const skeleton = require('../../../config/marina-skeleton');
 
 module.exports = {
     command: 'skeleton',
@@ -6,6 +6,6 @@ module.exports = {
     desc: 'Prints a shell Marina Config file to STDOUT',
     builder: {},
     handler: async (argv) => {
-        process.stdout.write(JSON.stringify(example, null, 2));
+        process.stdout.write(JSON.stringify(skeleton, null, 2));
     }
 };

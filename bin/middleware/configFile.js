@@ -1,4 +1,4 @@
-const { setConfigFile } = require('../../lib/services/configuration');
+const { setConfigFile, setConfigFileSafe } = require('../../lib/services/configuration');
 const logger = require('../../lib/logger');
 
 const normalizeCmd = (arr) => arr.join('-');
@@ -8,6 +8,10 @@ const configLess = [
     ['config', 'e'],
     ['c', 'example'],
     ['c', 'e'],
+].map(normalizeCmd);
+
+const configSafe = [
+    ['init']
 ].map(normalizeCmd);
 
 module.exports = (argv) => {
@@ -20,5 +24,9 @@ module.exports = (argv) => {
         logger.get('cli/runner').debug('Using MARINA_CONFIG from ENV');
         argv.file = process.env.MARINA_CONFIG;
     }
-    setConfigFile(argv.file);
+
+    (configSafe.includes(normalizeCmd(argv._))
+        ? setConfigFileSafe
+        : setConfigFile
+    )(argv.file);
 };
