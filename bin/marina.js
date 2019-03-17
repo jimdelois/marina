@@ -1,6 +1,6 @@
 #!/usr/bin/env node --no-warnings
 
-const { loadConfigurationFile } = require('./middleware/configFile');
+const loadConfigurationFile = require('./middleware/configFile');
 const applyVerbosity = require('./middleware/verbosity');
 const yargs = require('yargs');
 

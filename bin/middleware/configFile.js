@@ -10,7 +10,7 @@ const configLess = [
     ['c', 'e'],
 ].map(normalizeCmd);
 
-const loadConfigurationFile = (argv) => {
+module.exports = (argv) => {
     if (configLess.includes(normalizeCmd(argv._))) {
         logger.get('cli/runner').debug('Skipping file load for Config-less command');
         return;
@@ -22,8 +22,3 @@ const loadConfigurationFile = (argv) => {
     }
     setConfigFile(argv.file);
 };
-
-module.exports = {
-    loadConfigurationFile
-};
-
