@@ -30,18 +30,37 @@ Marina does this by providing a configuration DSL to specify:
 
 The CLI is the only module currently being developed.
 
-### Installation (Temporary)
+### Installation of Marina CLI
+
+Due to a complicated set of intricacies surrounding local file mounts of source directories, local storage of the `marina.json` Config file, and some chicken/egg problems, the simplest installation of the `marina` CLI tool is directly onto the Host machine (as opposed to shipping Marina as an already-Dockerized tool, itself).
+
+#### Binary Executable
+
+We leverage the [Pkg Node Module](https://github.com/zeit/pkg) to compile the CLI into a binary executable, removing the dependency for a Node 10 runtime on the Host machine.
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
-$> cd marina
+$> npm install
+$> npm run build
+$> cp ./build/marina /usr/loca/bin/marina  # Or any other directory of your choosing
+$> npm run clean
+```
+
+#### Marina Development
+
+If the Host machine has a Node 10 runtime, etc, this CLI script may simply be linked.  Updates to the source files will immediately be reflected in the system-linked script.
+
+```
+$> git clone git@github.com:jimdelois/marina.git
 $> npm install
 $> npm link
 ```
+ 
+#### Homebrew
 
-*Note: This will eventually be a Dockerized image with a `marina` entrypoint and a helper script to install as a single executable on a host system.*
+Versioned binaries will shortly be available via the Homebrew package manager. This will eventually be the preferred method of distribution.
 
-### Invoking
+### Invoking and Usage
 Start with the basic `marina` command for the default Help menu, which will assist further.
 
 ```
@@ -73,10 +92,17 @@ Copyright 2019 - Jim DeLois - https://github.com/jimdelois/marina
 ```
 
 
-## Roadmap
-- Round out basic functionality (MVP is TBD)
-- Dockerize
-- Create install script
-- hapi.js HTTP API
-- Fronting UX app
+## General Roadmap
+- [ ] Round out basic functionality
+  - [x] Basic Commands: Up/Down/Clean
+  - [ ] Config
+    - [ ] Stack/App Addition and Removal
+    - [ ] Import/Export
+  - [ ] Status Commands
+- [ ] Guide / Walkthrough - GitHub Pages
+- [x] Compilation to distributable binary
+- [ ] Make available in Homebrew
+- [ ] hapi.js HTTP API
+- [ ] Fronting UX App
+- [ ] Electron version of Fronting App?
 
