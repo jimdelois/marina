@@ -1,4 +1,9 @@
 {
+  "marina": {
+    "config": {
+      "version": "0.1.0"
+    }
+  },
   "providers": {
     "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02": {
       "id": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
