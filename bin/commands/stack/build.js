@@ -2,13 +2,13 @@ const { selectStack, selectApplications } = require('../../../lib/services/confi
 const dc = require('docker-compose');
 
 module.exports = {
-    command: 'down <stackNameOrId>',
-    aliases: ['d'],
-    desc: 'Bring down all Applications in the given Stack',
+    command: 'build <stackNameOrId>',
+    aliases: ['b'],
+    desc: 'Build all Applications in the given Stack',
     builder: (yargs) => {
         yargs
             .positional('stackNameOrId', {
-                describe: 'Name or UUID of the Stack to bring down'
+                describe: 'Name or UUID of the Stack whose Applications are to be built'
             })
         ;
     },
@@ -21,7 +21,7 @@ module.exports = {
                 continue;
             }
 
-            await dc.stop({
+            await dc.buildAll({
                 cwd: application.config.path,
                 config: application.config['docker-compose-file'] ? application.config['docker-compose-file'] : 'docker-compose.yml',
                 log: true,

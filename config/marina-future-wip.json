@@ -1,11 +1,16 @@
 {
+  "marina": {
+    "config": {
+      "version": "0.1.0",
+      "description": "An example file of what future configs might look like."
+    }
+  },
   "providers": {
     "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02": {
       "id": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
-      "name": "Got Hubes",
+      "name": "Public GitHub",
       "type": "GIT",
       "config": {
-        "vendor": "GITHUB",
         "url": "github.com",
         "protocol": "SSH",
         "token": "8Ey7qRnUi9v8HrsVTNEvlBAXaa5Z6nTRho5oq9cCi789GVk3DGCv6i2T6mFEJFhl"
@@ -26,7 +31,7 @@
       "name": "Proxy",
       "type": "LOCAL",
       "config": {
-        "path": "/Users/jdelois//Development/Docker",
+        "path": "/Users/jdelois/Development/Docker",
         "docker-compose-file": "nginx-proxy.docker-compose.yml",
         "depends-on": null
       }
@@ -34,9 +39,9 @@
     "da278a79-1bc7-470d-bc3b-9f06bdc0263e": {
       "id": "da278a79-1bc7-470d-bc3b-9f06bdc0263e",
       "name": "Magic 8 API",
-      "type": "REPOSITORY",
+      "type": "SCM",
       "config": {
-        "provider": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
+        "scm": "f59f8abc-c17b-4c4e-9848-ab9a8bf92c02",
         "repository": "jimdelois/magiceight.api",
         "path": "/Users/jdelois/Development/Projects/Managed/jimdelois/magiceight.api",
         "docker-compose-file": null,
