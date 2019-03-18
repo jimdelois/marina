@@ -100,7 +100,7 @@ module.exports = {
             }
         };
 
-        writeConfigFile();
+        await writeConfigFile();
         process.stdout.write(`Application "${name}" added.`);
     }
 };

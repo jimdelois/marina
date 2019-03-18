@@ -12,7 +12,7 @@ module.exports = {
 
         delete stacks[stack.id];
 
-        writeConfigFile();
+        await writeConfigFile();
         process.stdout.write(`Stack "${stack.name}" removed.`);
     }
 };

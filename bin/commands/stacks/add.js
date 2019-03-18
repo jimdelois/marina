@@ -42,7 +42,7 @@ module.exports = {
             applications: [],
         };
 
-        writeConfigFile();
+        await writeConfigFile();
         process.stdout.write(`Stack "${name}" added.`);
     }
 };
