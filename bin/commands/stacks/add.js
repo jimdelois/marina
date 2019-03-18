@@ -16,9 +16,6 @@ module.exports = {
             })
     },
     handler: async (argv) => {
-        const config = await getConfig();
-        const stacks = config.stacks;
-
         let name = argv.name;
         if (!argv.name) {
             const answers = await inquirer.prompt([{
@@ -36,7 +33,9 @@ module.exports = {
             return;
         }
 
+        const stacks = (await getConfig()).stacks;
         const id = uuid();
+
         stacks[id]= {
             id: id,
             name: name,
