@@ -48,7 +48,7 @@ $> npm run clean
 
 #### Marina Development
 
-If the Host machine has a Node 10 runtime, etc, this CLI script may simply be linked.  Updates to the source files will immediately be reflected in the system-linked script.
+If the Host machine has a Node 10 runtime, etc, this CLI script may simply be linked on it.  Updates to the source files will immediately be reflected in the system-linked script.
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
@@ -77,9 +77,12 @@ Examples:
 
 Commands:
  marina generate-completion  Generate a bash completion script
+ marina applications         Interact with the collection of Applications                   [aliases: as]
  marina config               Operate with/on a given Configuration file                      [aliases: c]
+ marina initialize           Creates a new Marina config file from scratch and initializes for use
+                                                                                       [aliases: init, i]
  marina stack                Interact with an individual Stack                               [aliases: s]
- marina stacks               Interact with all Stacks collectively                          [aliases: ss]
+ marina stacks               Interact with the collection of Stacks                         [aliases: ss]
 
 Options:
  -h, --help     Show help                                                                       [boolean]
@@ -93,13 +96,17 @@ Copyright 2019 - Jim DeLois - https://github.com/jimdelois/marina
 
 
 ## General Roadmap
-- [ ] Round out basic functionality
+- [x] Round out basic functionality
   - [x] Basic Commands: Up/Down/Clean
-  - [ ] Config
-    - [ ] Stack/App Addition and Removal
-    - [ ] Import/Export
-  - [ ] Status Commands
-- [ ] Guide / Walkthrough - GitHub Pages
+  - [x] Config
+    - [x] Stack Addition and Removal
+    - [x] Application Addition and Removal
+    - [x] Application linking/unlinking to/from Stacks
+    - [x] Export
+  - [x] Tool Initialization
+- [ ] Status Commands
+- [ ] SCM / Version Control Integration
+- [ ] Guide / Walkthrough - GitHub Pages?
 - [x] Compilation to distributable binary
 - [ ] Make available in Homebrew
 - [ ] hapi.js HTTP API
