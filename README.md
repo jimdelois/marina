@@ -60,8 +60,108 @@ $> npm link
 
 Versioned binaries will shortly be available via the Homebrew package manager. This will eventually be the preferred method of distribution.
 
-### Invoking and Usage
-Start with the basic `marina` command for the default Help menu, which will assist further.
+### Quick Start
+
+#### The Marina Config File
+
+Marina persists all data on the file system in a Configuration file.  You can see an example of the syntax by issuing `marina config example`.  By default, Marina will store this in `~/.marina/marina.json`.  However, this value can be overridden with the `-f` option or by supplying an environment variable of the form `MARINA_CONFIG=/path/to/marina.json`.  By placing the latter in your `~/.bash_profile` (or similar), you can effectively store the file anywhere and Marina will use it automatically.
+
+To get started, generate a new Configuration (using the default, or any options cited above) with:
+
+```
+$> marina init
+
+Wrote new Config file at /Users/username/.marina/marina.json.
+```
+
+#### Defining Applications in a Stack
+
+Supposing there is a Docker-Composed **Application** rooted in the current directory, the following command will register it into Marina:
+
+```
+$> marina applications add \
+    --name "Acme API" \
+    --type "LOCAL" \
+    --docker-compose-filename "docker-compose.override.yml"
+    --path $(pwd)
+
+Application "Acme API" added.
+```
+
+**NOTE:** Any options omitted will be requested via an interactive prompt. Relatedly, the file `docker-compose.yml` will be used if not specified.  At this time, only the `LOCAL` Application "type" is supported, implying a locally-defined Docker Compose -ready application.
+
+Add another:
+
+```
+$> marina applications add \
+    --name "Acme Website" \
+    --type "LOCAL" \
+    --path "/development/projects/acme/website"
+
+Application "Acme Website" added.
+```
+
+Marina **Stacks** are logical groupings of separate Applications to be interacted with collectively.  Once a Stack exists, any Applications regsitered into Marina can be added into the grouping, or removed, etc.
+
+Create a Stack:
+
+```
+$> marina stacks add --name "The Acme Stack"
+
+Stack "The Acme Stack" added.
+```
+
+Now bind the two previously-created Applications to it:
+
+```
+$> marina applications link "Acme API" "The Acme Stack" && \
+   marina applications link "Acme Website" "The Acme Stack"
+
+Application "Acme API" added to Stack "The Acme Stack".
+Application "Acme Website" added to Stack "The Acme Stack".
+```
+
+#### Reviewing Current Configurations
+
+There are various ways to view the current Configuration, at different levels:
+
+```
+$> marina stack ls "The Acme Stack"
+
+STACK NAME           ID                                   APPS
+The Acme Stack       6f294762-b1ff-4a93-b7cb-1c160ff03404    2
+
+APP NAME             ID                                   TYPE
+Acme API             da278a79-1bc7-470d-bc3b-9f06bdc0263e Local
+Acme Website         1f8d737c-f81d-42cf-b47f-6c01ac21622e Local
+```
+
+Or (among others - view the Help for other informative outputs):
+
+```
+$> marina config dump
+
+<< contents omitted >>
+```
+
+#### Working with Stacks
+
+The point of Marina is to operate on groups of Applications (Stacks) as a whole.  With the definitions and associations in place, we can build all of the Applications at once and bring all services for all Application up with commands such as the following:
+
+```
+$> marina stack build "The Acme Stack" && \
+   marina stack up "The Acme Stack"
+```
+
+All Applications should be built and started in tandem.  Stop the containers (noting that for all "name" inputs, you can always specify the resource's UUID):
+
+```
+$> marina stack down 6f294762-b1ff-4a93-b7cb-1c160ff03404
+```
+
+### More Usage
+
+Until full documentation is available, use the basic `marina` command for the default Help menu:.
 
 ```
 $> marina
