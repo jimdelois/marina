@@ -5,7 +5,13 @@ module.exports = {
     command: 'down <stackNameOrId>',
     aliases: ['d'],
     desc: 'Bring down all Applications in the given Stack',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('stackNameOrId', {
+                describe: 'Name or UUID of the Stack to bring down'
+            })
+        ;
+    },
     handler: async (argv) => {
         const stack = await selectStack(argv.stackNameOrId);
 

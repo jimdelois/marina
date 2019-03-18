@@ -1,9 +1,18 @@
-const { getConfig, writeConfigFile, selectStack, selectApplication } = require('../../../lib/services/configuration');
+const { writeConfigFile, selectStack, selectApplication } = require('../../../lib/services/configuration');
 
 module.exports = {
     command: 'link <applicationNameOrId> <stackNameOrId>',
     desc: 'Associates the given Application with the given Stack',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('applicationNameOrId', {
+                describe: 'Name or UUID of the Application to attach'
+            })
+            .positional('stackNameOrId', {
+                describe: 'Name or UUID of the target Stack'
+            })
+        ;
+    },
     handler: async (argv) => {
 
         const application = await selectApplication(argv.applicationNameOrId);

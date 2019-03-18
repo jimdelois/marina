@@ -4,7 +4,13 @@ module.exports = {
     command: 'remove <applicationNameOrId>',
     aliases: ['r'],
     desc: 'Remove an Application from the Configuration',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('applicationNameOrId', {
+                describe: 'Name or UUID of the Application to remove'
+            })
+        ;
+    },
     handler: async (argv) => {
 
         const config = await getConfig();

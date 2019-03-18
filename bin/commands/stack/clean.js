@@ -5,7 +5,13 @@ module.exports = {
     command: 'clean <stackNameOrId>',
     aliases: ['c'],
     desc: 'Bring down all Applications and Removes Assets for the given Stack',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('stackNameOrId', {
+                describe: 'Name or UUID of the Stack to clean'
+            })
+        ;
+    },
     handler: async (argv) => {
 
         const stack = await selectStack(argv.stackNameOrId);

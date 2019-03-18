@@ -5,7 +5,13 @@ module.exports = {
     command: 'up <stackNameOrId>',
     aliases: ['u'],
     desc: 'Bring up all Applications in the given Stack',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('stackNameOrId', {
+                describe: 'Name or UUID of the Stack to bring up'
+            })
+        ;
+    },
     handler: async (argv) => {
         const stack = await selectStack(argv.stackNameOrId);
 

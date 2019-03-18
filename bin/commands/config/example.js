@@ -1,4 +1,3 @@
-const { getConfig } = require('../../../lib/services/configuration');
 const example = require('../../../config/marina-example');
 
 module.exports = {

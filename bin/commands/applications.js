@@ -1,4 +1,3 @@
-
 module.exports = {
     command: 'applications',
     aliases: ['as'],

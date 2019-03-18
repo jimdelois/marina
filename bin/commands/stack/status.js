@@ -1,5 +1,4 @@
 const { getConfig } = require('../../../lib/services/configuration');
-const sprintf = require('sprintf-js').sprintf;
 
 module.exports = {
     command: 'status <stackName>',

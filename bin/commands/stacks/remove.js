@@ -4,7 +4,13 @@ module.exports = {
     command: 'remove <stackNameOrId>',
     aliases: ['r'],
     desc: 'Remove a Stack from the Configuration',
-    builder: {},
+    builder: (yargs) => {
+        yargs
+            .positional('stackNameOrId', {
+                describe: 'Name or UUID of the Stack to remove'
+            })
+        ;
+    },
     handler: async (argv) => {
 
         const stack = await selectStack(argv.stackNameOrId);
