@@ -71,7 +71,7 @@ To get started, generate a new Configuration (using the default, or any options 
 ```
 $> marina init
 
-Wrote new Config file at /Users/username/.marina/marina.json.
+Wrote new Config file at /Users/jimdelois/.marina/marina.json.
 ```
 
 #### Defining Applications in a Stack
