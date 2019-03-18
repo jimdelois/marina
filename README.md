@@ -136,7 +136,7 @@ Acme API             da278a79-1bc7-470d-bc3b-9f06bdc0263e Local
 Acme Website         1f8d737c-f81d-42cf-b47f-6c01ac21622e Local
 ```
 
-Or (among others - view the Help for other informative outputs):
+Or (among others - view the Help for other informative outputs), e.g.:
 
 ```
 $> marina config dump
