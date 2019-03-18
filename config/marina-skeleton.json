@@ -2,7 +2,7 @@
   "marina": {
     "config": {
       "version": "0.1.0",
-      "description": "Auto-generated Marina Config Skeleton File"
+      "description": "Auto-generated Marina Config File"
     }
   },
   "applications": {},
