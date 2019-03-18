@@ -16,17 +16,17 @@ module.exports = {
             })
     },
     handler: async (argv) => {
-        let name = argv.name;
-        if (!argv.name) {
-            const answers = await inquirer.prompt([{
-                type: 'input',
-                name: 'name',
-                message: 'Stack Name:',
-                validate: requireValue,
-                prefix: '>'
-            }]);
-            name = answers.name;
-        }
+
+        const answers = await inquirer.prompt([{
+            type: 'input',
+            name: 'name',
+            message: 'Stack Name:',
+            validate: requireValue,
+            prefix: '>',
+            when: !argv.name
+        }]);
+
+        const name = argv.name ? argv.name : answers.name;
 
         if (await stackExists(name)) {
             process.stderr.write(`Stack "${name}" already exists.`);
@@ -37,8 +37,8 @@ module.exports = {
         const id = uuid();
 
         stacks[id]= {
-            id: id,
-            name: name,
+            id,
+            name,
             applications: [],
         };
 
