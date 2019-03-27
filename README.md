@@ -34,17 +34,19 @@ The CLI is the only module currently being developed.
 
 Due to a complicated set of intricacies surrounding local file mounts of source directories, local storage of the `marina.json` Config file, and some chicken/egg problems, the simplest installation of the `marina` CLI tool is directly onto the Host machine (as opposed to shipping Marina as an already-Dockerized tool, itself).
 
-#### Binary Executable
+#### Manual Installation
 
-We leverage the [Pkg Node Module](https://github.com/zeit/pkg) to compile the CLI into a binary executable, removing the dependency for a Node 10 runtime on the Host machine.
+With Docker installed on the Host machine, the following command will install the Marina CLI tool to `/usr/local/bin/marina`.
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
-$> npm install
-$> npm run build
-$> cp ./build/marina /usr/loca/bin/marina  # Or any other directory of your choosing
-$> npm run clean
+$> cd marina
+$> make && make install && make clean
 ```
+
+##### Notes
+- The target install location shall be configurable in the future
+- Currently, only Mac OS is supported. It should be a trivial matter to enable the other architectures supported by `pkg`. 
 
 #### Marina Development
 
@@ -52,6 +54,7 @@ If the Host machine has a Node 10 runtime, etc, this CLI script may simply be li
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
+$> cd marina
 $> npm install
 $> npm link
 ```
