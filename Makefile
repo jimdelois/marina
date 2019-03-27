@@ -10,3 +10,6 @@ install:
 clean:
 	rm -f ./build/marina*
 	docker rmi marina_build
+
+uninstall:
+	rm -f /usr/local/bin/marina
