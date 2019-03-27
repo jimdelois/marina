@@ -36,7 +36,7 @@ Due to a complicated set of intricacies surrounding local file mounts of source 
 
 #### Manual Installation
 
-With Docker installed on the Host machine, the following command will install the Marina CLI tool to `/usr/local/bin/marina`.
+With Docker installed on the Host machine, the following commands will install the Marina CLI tool to `/usr/local/bin/marina`.
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
