@@ -36,17 +36,27 @@ Due to a complicated set of intricacies surrounding local file mounts of source 
 
 #### Manual Installation
 
-With Docker installed on the Host machine, the following commands will install the Marina CLI tool to `/usr/local/bin/marina`.
+##### System Dependencies &#10013;
+- Docker
+- `rm` (for the `clean` target)
+
+The following commands will install the Marina CLI tool to `/usr/local/bin/marina`.
 
 ```
 $> git clone git@github.com:jimdelois/marina.git
 $> cd marina
-$> make && make install && make clean
+$> make && make install
+```
+
+To remove build artifacts:
+
+```
+$> make clean
 ```
 
 ##### Notes
 - The target install location shall be configurable in the future
-- Currently, only Mac OS is supported. It should be a trivial matter to enable the other architectures supported by `pkg`. 
+- &#10013; Currently, only Mac OS is supported. It should be a trivial matter to enable the other architectures supported by `pkg`. 
 
 #### Marina Development
 
