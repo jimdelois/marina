@@ -34,6 +34,13 @@ The CLI is the only module currently being developed.
 
 Due to a complicated set of intricacies surrounding local file mounts of source directories, local storage of the `marina.json` Config file, and some chicken/egg problems, the simplest installation of the `marina` CLI tool is directly onto the Host machine (as opposed to shipping Marina as an already-Dockerized tool, itself).
 
+#### Homebrew (Recommended)
+Homebrew is by far the simplest method of installation, and allows for easily keeping the tool up-to-date.
+
+```
+brew install jimdelois/macosx/marina
+```
+
 #### Manual Installation
 
 ##### System Dependencies &#10013;
@@ -68,10 +75,12 @@ $> cd marina
 $> npm install
 $> npm link
 ```
- 
-#### Homebrew
 
-Versioned binaries will shortly be available via the Homebrew package manager. This will eventually be the preferred method of distribution.
+To remove:
+
+```
+$> npm rm --global marina 
+```
 
 ### Quick Start
 

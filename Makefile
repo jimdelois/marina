@@ -8,7 +8,7 @@ install:
 	mv $$PWD/build/marina /usr/local/bin/marina
 
 release: build
-	tar -czvf $$PWD/dist/marina-macos-x64-latest.tar.gz $$PWD/build/marina
+	cd $$PWD/build && tar -czvf ../dist/marina-macos-x64-latest.tar.gz marina
 	@shasum -a 256 $$PWD/dist/marina-macos-x64-latest.tar.gz | awk '{printf $$1}'
 	@echo
 	@docker run -it --rm marina_build npm run version --silent
