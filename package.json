@@ -36,7 +36,5 @@
     "uuid": "^3.3.2",
     "yargs": "^13.2.0"
   },
-  "devDependencies": {
-    "pkg": "^4.3.7"
-  }
+  "devDependencies": {}
 }
