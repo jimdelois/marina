@@ -1,4 +1,4 @@
-.PHONY: build install clean
+.PHONY: build install clean uninstall
 
 build:
 	docker build -t marina_build .
@@ -10,3 +10,6 @@ install:
 clean:
 	rm -f ./build/marina*
 	docker rmi marina_build
+
+uninstall:
+	rm -f /usr/local/bin/marina
