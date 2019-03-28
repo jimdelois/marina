@@ -41,7 +41,7 @@ Homebrew is by far the simplest method of installation, and allows for easily ke
 brew install jimdelois/macosx/marina
 ```
 
-For more information, visit [https://github.com/jimdelois/homebrew-macosx](https://github.com/jimdelois/homebrew-macosxx)
+For more information, visit [https://github.com/jimdelois/homebrew-macosx](https://github.com/jimdelois/homebrew-macosx)
  
 #### Manual Installation
 
