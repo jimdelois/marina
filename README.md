@@ -106,7 +106,7 @@ Supposing there is a Docker-Composed **Application** rooted in the current direc
 $> marina applications add \
     --name "Acme API" \
     --type "LOCAL" \
-    --docker-compose-filename "docker-compose.override.yml"
+    --docker-compose-filename "docker-compose.override.yml" \
     --path $(pwd)
 
 Application "Acme API" added.
@@ -232,7 +232,7 @@ Copyright 2019 - Jim DeLois - https://github.com/jimdelois/marina
 - [ ] SCM / Version Control Integration
 - [ ] Guide / Walkthrough - GitHub Pages?
 - [x] Compilation to distributable binary
-- [ ] Make available in Homebrew
+- [x] Make available in Homebrew
 - [ ] hapi.js HTTP API
 - [ ] Fronting UX App
 - [ ] Electron version of Fronting App?
