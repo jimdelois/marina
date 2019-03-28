@@ -170,7 +170,7 @@ $> marina config dump
 
 #### Working with Stacks
 
-The point of Marina is to operate on groups of Applications (Stacks) as a whole.  With the definitions and associations in place, we can build all of the Applications at once and bring all services for all Application up with commands such as the following:
+The point of Marina is to operate on Stacks (groups of Applications) as a whole.  With the definitions and associations in place, we can build all of the Applications at once and bring all services for all Applications up with commands such as the following:
 
 ```
 $> marina stack build "The Acme Stack" && \
