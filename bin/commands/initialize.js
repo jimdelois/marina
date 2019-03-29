@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const skeleton = require('../../config/marina-skeleton');
-const { setConfig, configFileExists, writeConfigFile } = require('../../lib/services/configuration');
+const { setConfig, configFileExists, writeNewConfigFile } = require('../../lib/services/configuration');
 
 module.exports = {
     command: 'initialize',
@@ -45,7 +45,7 @@ module.exports = {
         }
 
         if (writeFile) {
-            await writeConfigFile();
+            await writeNewConfigFile();
             process.stdout.write(`Wrote new Config file at ${argv.file}.`);
             return;
         }
