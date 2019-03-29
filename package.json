@@ -1,6 +1,6 @@
 {
   "name": "marina",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manage multiple application stacks in a local development environment",
   "main": "index.js",
   "engines": {
